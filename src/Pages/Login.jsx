@@ -33,11 +33,11 @@ const Login = () => {
   return (
     <>
       
-      <div className="hero bg-primary py-24 min-h-screen">
+      <div className="hero bg-gray-300 py-24 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           
-          <div className="card bg-[#e2d8d8] w-full max-w-sm shrink-0 shadow-2xl">
-            <h1 className=" ml-8 mt-4 text-5xl font-bold">Sign In Now!</h1>
+          <div className="card bg-[#e2d8d8] w-full max-w-sm shrink-0 shadow-2xl p-4">
+            <h1 className=" ml-8 mt-4 text-5xl font-bold">Login Now!</h1>
             
 
             <div className="text-center mt-4">
@@ -51,7 +51,7 @@ const Login = () => {
                 ) : (
                   <>
                     <FaGoogle className="text-xl"></FaGoogle>
-                    <span>Sign in with Google</span>
+                    <span>Login with Google</span>
                   </>
                 )}
               </button>

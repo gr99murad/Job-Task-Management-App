@@ -1,32 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../context/AuthContext/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../Firebase/firebase.init";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+
+  const {user, signOutUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try{
+      await signOutUser();
+      Swal.fire("Success", "Logged out Successfully", "success");
+      navigate("/");
+    }catch(error){
+      Swal.fire("Error", error.message, "error");
+    }
+  }
   return (
-    <div className="navbar bg-base-100">
+    <div className="bg-[#cccccc] fixed top-0 w-full z-50 shadow-lg">
+       <div className="navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">Task Me</a>
       </div>
       <div className="flex-none">
-        <button className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-            <span className="badge badge-xs badge-primary indicator-item"></span>
-          </div>
-        </button>
-        <div className="dropdown dropdown-end">
+        {user ? (
+          <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
             role="button"
@@ -34,8 +34,8 @@ const Navbar = () => {
           >
             <div className="w-10 rounded-full">
               <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                alt="user"
+                src={user.photoURL}
               />
             </div>
           </div>
@@ -45,20 +45,28 @@ const Navbar = () => {
           >
             <li>
               <a className="justify-between">
+                {user.displayName}
+              </a>
+              </li>
+            <li>
+              <a className="justify-between">
                 Profile
-                <span className="badge">New</span>
               </a>
             </li>
             <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
+              <button onClick={handleLogout}>Logout</button>
             </li>
           </ul>
         </div>
+        ):(
+          <Link to="/"></Link>
+        
+        )}
+        
       </div>
     </div>
+    </div>
+   
   );
 };
 
