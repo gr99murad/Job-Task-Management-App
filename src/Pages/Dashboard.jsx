@@ -104,13 +104,18 @@ const Dashboard = () => {
         
         {showUpdateModal && taskToUpdate && (
             <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-50'>
-                <div className='bg-white p-6 rounded-md'>
+                <div className='bg-white p-6 rounded-md w-full mx-24'>
                     <h3 className='text-xl font-bold text-center mb-4'>Update Task</h3>
-                    <input type="text" value={taskToUpdate.title} onChange={(e) => setTaskToUpdate({ ...taskToUpdate, title: e.target.value})} className='input input-bordered' placeholder='Task Title' />
+                   <div >
+                   <div className='py-4'>
+                   <label className='label'>Task Title</label>
+                   <input type="text" value={taskToUpdate.title} onChange={(e) => setTaskToUpdate({ ...taskToUpdate, title: e.target.value})} className='w-full input input-bordered' placeholder='Task Title' />
+                   </div>
+                     <label className='label'>Description</label>
+                    <textarea value={taskToUpdate.description} onChange={(e) => setTaskToUpdate({ ...taskToUpdate, description: e.target.value})} className='w-full h-44 input input-bordered' placeholder='Task Description'></textarea>
+                   </div>
 
-                    <textarea value={taskToUpdate.description} onChange={(e) => setTaskToUpdate({ ...taskToUpdate, description: e.target.value})} className='input input-bordered' placeholder='Task Description'></textarea>
-
-                    <div className='flex justify-between'>
+                    <div className='flex justify-between py-4'>
                         <button onClick={handleUpdateTask} className='btn btn-primary'>save</button>
                         <button onClick={() => setShowUpdateModal(false)} className='btn btn-outline'>Cancel</button>
                     </div>
@@ -123,11 +128,11 @@ const Dashboard = () => {
         
          {showDeleteModal && taskToDelete && (
             <div className='fixed inset-0 flex justify-center items-center bg-black bg-opacity-50'>
-                <div className='bg-white p-6 rounded-md'>
-                    <h3 className='text-xl font-bold text-center mb-4'>Are you sure you want to delete this task</h3>
+                <div className='bg-white p-6 rounded-md mx-4'>
+                    <h3 className='text-xl font-bold text-center mb-4'>Are you sure! you want to delete this task?</h3>
                     
                     <div className='flex justify-between'>
-                        <button onClick={handleDeleteTask} className='btn bg-red-500 text-white'>yes</button>
+                        <button onClick={handleDeleteTask} className='btn bg-red-300 text-white'>yes</button>
                         <button onClick={() => setShowDeleteModal(false)} className='btn btn-outline'>No</button>
                     </div>
 

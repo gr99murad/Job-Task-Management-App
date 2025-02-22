@@ -23,8 +23,11 @@ const TaskCard = ({task, onDelete, onUpdate}) => {
 
     return (
         <div ref={setNodeRef} {...listeners} {...attributes} style={style} className='p-4 bg-white rounded-md shadow-md mb-2 '>
+            <div className='space-y-2'>
             <h3 className='text-lg font-semibold'>{task.title}</h3>
             <p className='text-sm text-gray-600'>{task.description}</p>
+            <p className='text-sm text-gray-600' >{task.timestamp}</p>
+            </div>
             <div className='mt-2 flex justify-between'>
                 <button onClick={handleUpdate} onPointerDown={(e) => e.stopPropagation()} className='btn text-blue-500'>Update</button>
                 <button onClick={handleDelete} onPointerDown={(e) => e.stopPropagation()} className='btn text-red-500'>Delete</button>

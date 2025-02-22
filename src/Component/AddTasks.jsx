@@ -45,17 +45,29 @@ const AddTasks = ({setTasks}) => {
                 <div className='bg-white p-6 rounded-lg shadow-lg w-96'>
                     <h2 className='text-xl font-semibold mb-4'>Add Task</h2>
                     <form onSubmit={handleSubmit} className='space-y-4'>
+                        <div>
+                            <label className='label'>Task Title</label>
                         <input type="text" placeholder='Task Title' value={title} onChange={(e) => setTitle(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md' required />
-                        <textarea placeholder='Task Description' value={description} onChange={(e) => setDescription(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md' required />
+                        </div>
+                       <div>
+                       <label className='label'>Task Description</label>
+                       <textarea placeholder='Task Description' value={description} onChange={(e) => setDescription(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md' required />
+                       </div>
+                        <div>
+                        <label className='label'>Date & Time</label>    
                         <input type="datetime-local"  value={timestamp} onChange={(e) => setTimestamp(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md' required />
+                        </div>
 
-                        <select value={taskCategory} onChange={(e) => setTaskCategory(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md'>
+                       <div>
+                       <label className='label'>Category</label>    
+                       <select value={taskCategory} onChange={(e) => setTaskCategory(e.target.value)} className='w-full p-2 border border-gray-300 rounded-md'>
                             {categories.map((category) => (
                                 <option key={category} value={category}>
                                     {category}
                                 </option>
                             ))}
                         </select>
+                       </div>
 
                         <button type='submit' className='w-full p-2 border rounded-md'>Add Task</button>
                     </form>
