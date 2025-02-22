@@ -1,4 +1,4 @@
-📝 Task Management App
+##📝 Task Management App
 🔹 Short Description
 A Task Management Application that allows users to add, edit, delete, and reorder tasks in three categories: To-Do, In Progress, and Done. The app features Firebase Authentication (Google sign-in), real-time database synchronization, and a clean, responsive UI.
 
