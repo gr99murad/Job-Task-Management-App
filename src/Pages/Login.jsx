@@ -26,7 +26,7 @@ const Login = () => {
       const user = result.user;
 
       // store user details in db
-      await fetch('http://localhost:5000/users', {
+      await fetch('https://task-management-app-server-mu.vercel.app/users', {
         method: "POST",
         headers: { "Content-Type": "application/json"},
         body: JSON.stringify({

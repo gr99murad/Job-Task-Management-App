@@ -3,6 +3,7 @@ import Navbar from '../Component/Navbar';
 import { closestCenter, DndContext } from '@dnd-kit/core';
 import TaskColumn from '../Component/TaskColumn';
 import AddTasks from '../Component/AddTasks';
+import Footer from '../Component/Footer';
 
 const Dashboard = () => {
     const [tasks, setTasks] = useState([]);
@@ -13,7 +14,7 @@ const Dashboard = () => {
     const categories = ['To-Do', 'In Progress', 'Done'];
     
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch('https://task-management-app-server-mu.vercel.app/tasks')
         .then(res => res.json())
         .then(data => setTasks(data));
     },[]);
@@ -32,7 +33,7 @@ const Dashboard = () => {
             setTasks(tasks.map(task => task._id === active.id ? updatedTask : task));
 
             // update category in MOngoDB
-            await fetch(`http://localhost:5000/tasks/${active.id}`, {
+            await fetch(`https://task-management-app-server-mu.vercel.app/tasks/${active.id}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ category: newCategory})
@@ -43,7 +44,7 @@ const Dashboard = () => {
         if(!taskToUpdate) return;
 
         try{
-            const res = await fetch(`http://localhost:5000/tasks/${taskToUpdate._id}`, {
+            const res = await fetch(`https://task-management-app-server-mu.vercel.app/tasks/${taskToUpdate._id}`, {
                 method: 'PUT',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ title: taskToUpdate.title, description: taskToUpdate.description})
@@ -65,7 +66,7 @@ const Dashboard = () => {
         if(!taskToDelete) return;
         
         // delete task from server
-        await fetch(`http://localhost:5000/tasks/${taskToDelete}`, {
+        await fetch(`https://task-management-app-server-mu.vercel.app/tasks/${taskToDelete}`, {
             method: 'Delete',
         });
         // remove task locally
@@ -139,6 +140,8 @@ const Dashboard = () => {
                 </div>
             </div>
         )}
+
+        <Footer></Footer>
             
         </>
     );

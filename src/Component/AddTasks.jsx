@@ -25,7 +25,7 @@ const AddTasks = ({setTasks}) => {
         
 
         // add task in database
-        const res = await fetch('http://localhost:5000/tasks', {
+        const res = await fetch('https://task-management-app-server-mu.vercel.app/tasks', {
             method: 'POST',
             headers: { 'Content-Type': 'Application/json'},
             body: JSON.stringify(newTask),
