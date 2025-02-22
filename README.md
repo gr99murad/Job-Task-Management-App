@@ -9,13 +9,13 @@ Backend Repo : https://github.com/gr99murad/JobTaskManagementApp
 ## 📦 Dependencies
 
 # Frontend:
-React.js
-Tailwind CSS
-Firebase Authentication
+React.js,
+Tailwind CSS,
+Firebase Authentication,
 React DnD (for drag-and-drop functionality)
 # Backend:
-Node.js
-Express.js
+Node.js,
+Express.js,
 MongoDB
 
 
