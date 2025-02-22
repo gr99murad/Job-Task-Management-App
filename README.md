@@ -1,87 +1,47 @@
-##📝 Task Management App
-🔹 Short Description
+
+## 📝 Task Management App
+
 A Task Management Application that allows users to add, edit, delete, and reorder tasks in three categories: To-Do, In Progress, and Done. The app features Firebase Authentication (Google sign-in), real-time database synchronization, and a clean, responsive UI.
 
-🔗 Live Links
-Live Demo: Task Management App
-Backend Repo (if applicable): Backend Repository
-📦 Dependencies
-This project uses the following dependencies:
+## 🔗 Live Links
+Live Demo: https://job-task-management-app.web.app/
+Backend Repo : https://github.com/gr99murad/JobTaskManagementApp
+## 📦 Dependencies
 
-Frontend:
-
+# Frontend:
 React.js
 Tailwind CSS
 Firebase Authentication
 React DnD (for drag-and-drop functionality)
-Backend:
-
+# Backend:
 Node.js
 Express.js
 MongoDB
-Mongoose
-🚀 Installation Steps
+
+
+## 🚀 Installation Steps
 Follow these steps to set up the project locally:
 
-Frontend Setup
-Clone the repository
-
-sh
-Copy
-Edit
+# Frontend Setup
+Clone the repository : 
 git clone https://github.com/your-username/task-management-app.git
 cd task-management-app
-Install dependencies
 
-sh
-Copy
-Edit
-npm install
-Set up Firebase
+# Install dependencies
 
+**npm install
+*Set up Firebase
 Create a Firebase project.
 Enable Google Authentication.
-Get your Firebase Config and create a .env file with:
-sh
-Copy
-Edit
-VITE_FIREBASE_API_KEY=your_api_key
-VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-VITE_FIREBASE_PROJECT_ID=your_project_id
-Start the development server
+# Get your Firebase Config and create a .env file with:
 
-sh
-Copy
-Edit
+VITE_API_KEY=your_api_key
+VITE_AUTH_DOMAIN=your_auth_domain
+VITE_PROJECT_ID=your_project_id
+# Start the development server
 npm run dev
-Backend Setup (if applicable)
-Navigate to the backend folder
 
-sh
-Copy
-Edit
-cd backend
-Install dependencies
-
-sh
-Copy
-Edit
-npm install
-Set up environment variables
-Create a .env file in the backend directory and add:
-
-sh
-Copy
-Edit
-MONGO_URI=your_mongodb_connection_string
-PORT=5000
-Start the backend server
-
-sh
-Copy
-Edit
-npm start
-🛠 Technologies Used
+## 🛠 Technologies Used
 Frontend: React.js, Tailwind CSS, Firebase Authentication, React DnD
 Backend: Node.js, Express.js, MongoDB
 Authentication: Firebase Authentication
