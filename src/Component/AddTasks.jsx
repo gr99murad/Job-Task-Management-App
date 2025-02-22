@@ -38,7 +38,7 @@ const AddTasks = ({setTasks}) => {
     };
     return (
         <>
-        <button onClick={openModal} className='btn btn-primary'>Create New Task</button>
+        <button onClick={openModal} className='btn btn-outline'>Create New Task</button>
 
         {isOpen && (
             <div className='fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50'>

@@ -19,8 +19,22 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     setLoading(true);
 
+    
+
     try {
       const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      // store user details in db
+      await fetch('http://localhost:5000/users', {
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+        }),
+      })
       Swal.fire("success", "Google Login successful!", "success");
       navigate("/dashboard");
     } catch (error) {
